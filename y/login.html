@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
+    
+    <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBUKJ3QU6k8XIPtKHTFp_1M6e0GsYv8C4w",
+          authDomain: "livehospital-d2374.firebaseapp.com",
+          databaseURL: "https://livehospital-d2374.firebaseio.com",
+          projectId: "livehospital-d2374",
+          storageBucket: "livehospital-d2374.appspot.com",
+          messagingSenderId: "566279258076"
+        };
+        firebase.initializeApp(config);
+      </script>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <link rel="stylesheet" href="css/index.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+       </head>
+
+       <body>
+
+        <div class="container">
+            <div class="row">
+                <h1 class="text-center">Modal Login with jQuery Effects</h1>
+                <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
+            </div>
+        </div>
+        <!-- END # BOOTSNIP INFO -->
+        
+        <!-- BEGIN # MODAL LOGIN -->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" >
+                            <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- Begin # DIV Form -->
+                        <div id="div-forms">
+                        
+                            <!-- Begin # Login Form -->
+                            <div  id="login-form">
+                                <div class="modal-body">
+                                    <div id="div-login-msg">
+                                        <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                        <span id="text-login-msg">Type your username and password.</span>
+                                    </div>
+                                    <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+                                    <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+<!--                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                    </div> -->
+                                </div>
+                                <div class="modal-footer">
+                                    <div>
+                                        <input onCLick="login()" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <!-- End # Login Form -->
+                            
+                     
+                           
+                            
+                        </div>
+
+
+                        <script type="text/javascript" src="js/login.js"></script>
+       </body>

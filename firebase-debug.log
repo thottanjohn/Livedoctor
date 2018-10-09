@@ -1,0 +1,24 @@
+[debug] [2018-10-05T15:33:19.135Z] ----------------------------------------------------------------------
+[debug] [2018-10-05T15:33:19.138Z] Command:       /usr/bin/node /usr/local/bin/firebase serve
+[debug] [2018-10-05T15:33:19.138Z] CLI Version:   4.2.1
+[debug] [2018-10-05T15:33:19.138Z] Platform:      linux
+[debug] [2018-10-05T15:33:19.138Z] Node Version:  v8.10.0
+[debug] [2018-10-05T15:33:19.138Z] Time:          Fri Oct 05 2018 21:03:19 GMT+0530 (IST)
+[debug] [2018-10-05T15:33:19.138Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-05T15:33:19.148Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-05T15:33:19.148Z] > authorizing via signed-in user
+[debug] [2018-10-05T15:33:19.151Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/firea-671f0  
+ 
+[debug] [2018-10-05T15:33:21.040Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-05T15:33:21.047Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/firea-671f0  
+ 
+[debug] [2018-10-05T15:33:22.942Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/thottanjohn/livedoctorproject'...
+[info] 
+[debug] [2018-10-05T15:33:22.950Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/778232053992/clients/_:getWebAppConfig  
+ 
+[debug] [2018-10-05T15:33:23.881Z] <<< HTTP RESPONSE 200
+[info] i  hosting[firea-671f0]: Serving hosting files from: y
+[info] ✔  hosting[firea-671f0]: Local server: http://localhost:5000

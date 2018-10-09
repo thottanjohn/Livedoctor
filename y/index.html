@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
+    <script defer src="/__/firebase/5.5.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.5.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.5.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.5.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.5.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyBUKJ3QU6k8XIPtKHTFp_1M6e0GsYv8C4w",
+          authDomain: "livehospital-d2374.firebaseapp.com",
+          databaseURL: "https://livehospital-d2374.firebaseio.com",
+          projectId: "livehospital-d2374",
+          storageBucket: "livehospital-d2374.appspot.com",
+          messagingSenderId: "566279258076"
+        };
+        firebase.initializeApp(config);
+      </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+      <form  name="search-theme-form" id="search-theme-form">
+      <div class="input-group mb-3">
+          Choose Hospital: 
+          <select  id="mySelect" class="custom-select" id="inputGroupSelect01">
+            <option selected>None</option>
+          </select>
+        </div>
+        
+        <div class="input-group mb-3">
+          Choose Doctor:
+          <select id ="kSelect"  class="custom-select" id="inputGroupSelect02">
+            
+          </select>
+         
+        </div>
+        
+        <div class="input-group mb-3">
+          <div class="input-group-prepend"> 
+            
+            <input type ="hidden" name ="doctor" id ="doctor">
+           
+            <input onCLick="testJS()" id ="submit" type="submit" value="Send data">
+          </div>
+         
+        </div>
+        
+      </form>
+
+      <a href="login.html">Login</a>
+   
+   <!-- <script src ="jss/index.js"></script>  -->
+    
+   <script type="text/javascript" src="js/index.js"></script>
+  </body>
+</html>
