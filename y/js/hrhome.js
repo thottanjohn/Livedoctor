@@ -15,13 +15,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       else{
       window.location="dochome.html";
       }
-      var mRef = firebase.database().ref().child("hospitals/"+user.uid);
-      mRef.once('value', function(snapshot) {
+      
+  var mRef = firebase.database().ref().child("hospitals/"+user.uid);
+  mRef.once('value', function(snapshot) {
   
 
   x.innerHTML="Hosptial Name:"+snapshot.val().hospitalname;
   y.innerHTML="HR Name:"+snapshot.val().hrname;
-
+  var ref = firebase.database().ref().child("Doctors");
   var secRef = firebase.database().ref().child("Doctors").orderByChild('Hospital').equalTo(snapshot.val().hospitalname);
   secRef.once('value', function(snapshot) {
    
@@ -34,13 +35,19 @@ firebase.auth().onAuthStateChanged(function(user) {
   var bt = document.createElement("BUTTON");
   li.setAttribute('id',childKey);
   bt.setAttribute('id',key);
-
   var t = document.createTextNode("Remove Doctor");
   bt.appendChild(t);
   li.appendChild(document.createTextNode(childKey));
   div.appendChild(li);
   div.appendChild(bt);
-  bt.addEventListener("click",removedoc);
+  bt.onclick = function() {
+    ul.removeChild(div);
+
+    ref.child(this.id).remove();
+
+
+    // onclick stuff
+  }
 
 
   ul.appendChild(div);
@@ -94,13 +101,12 @@ console.error('Sign Out Error', error);
 function adddoctor(){
   var dc = document.getElementById('doctor')
  dc.value=firebase.auth().currentUser.uid;
- alert(dc.value);
  var frm = document.getElementById('search-theme-form') 
  frm.action = "doccreate.html";
 }
-function removedoc(){
-var deldiv=document.getElementById(this.id);
-alert(deldiv);
+function removedoc(id){
+
+alert(id);
 //ul.removeChild(deldiv);
 
 
