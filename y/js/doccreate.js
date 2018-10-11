@@ -1,11 +1,14 @@
 var database = firebase.database();
+var mauth1=firebase.auth();
+var mauth2=firebase.auth();
 
+var secondaryApp = firebase.initializeApp(config, "Secondary");
 
 function login(){
    var email=$('#login_email').val();
    var password=$('#login_password').val();
    var username=$('#username').val();
-   var avgtime=$('#login_password').val();
+   var avgtime=$('#avgminute').val();
    var token="0";
    var status="Unavailable";
 firebase.auth().onAuthStateChanged(function(user) {
@@ -15,11 +18,12 @@ firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
 // User is signed in.(
 var databasesRef = firebase.database().ref().child("hospitals");
-if(!isNaN(avgtime)){
+if(! isNaN(avgtime)){
     databasesRef.once('value', function(snapshot) {
         if (snapshot.hasChild(user.uid)) {
-           firebase.auth().createUserWithEmailAndPassword(email,password)
+        firebase.auth().createUserWithEmailAndPassword(email,password)
         .then(function(user) {
+        
           
         
         
@@ -61,7 +65,7 @@ if(!isNaN(avgtime)){
         status:status,
         Hospital:hospital
         });
-        firebase.auth().signInWithEmailAndPassword(email,password)
+      firebase.auth().signInWithEmailAndPassword(email,password)
         .then(function(firebaseUser) {
         window.location="hrhome.html"
         // Success 
@@ -76,8 +80,9 @@ if(!isNaN(avgtime)){
         }
         console.log(error);
         // Error Handling
-        });
-        
+        }); 
+
+
         
         });  
            
