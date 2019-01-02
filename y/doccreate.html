@@ -18,6 +18,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 <script>
       var config = {
           apiKey: "AIzaSyBUKJ3QU6k8XIPtKHTFp_1M6e0GsYv8C4w",
@@ -30,6 +32,133 @@
         firebase.initializeApp(config);
        
 </script>
+
+<!---
+<script src="http://maps.googleapis.com/maps/api/js?key="> 
+</script>
+<script>
+/* Script for Google maps geo Marker */
+ //Change 15 with your hidden box ID number
+var map;
+var marker;
+var clickFlag = 0;
+var myCenter=new google.maps.LatLng(39.436192999314095, -101.77734375);
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:4,
+  mapTypeControl:true,
+   sensor:true,
+    mapTypeControlOptions: {
+      style:google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+  });
+}
+function placeMarker(location) {
+if(clickFlag == 0) {
+  marker = new google.maps.Marker({
+    position: location,
+	animation:google.maps.Animation.BOUNCE,
+    map: map,
+  });
+	clickFlag = 1;
+}
+else {
+	marker.setPosition( location);
+	map.panTo(location);
+}
+//this ID of the hidden field should be common.
+document.getElementById("input_"+geolocationID).value = location;
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<script src="http://cdn.jotfor.ms/static/jotform.js?3.2.1145" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+var clickFlag = 0;
+var myCenter=new google.maps.LatLng(39.436192999314095, -101.77734375);
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:4,
+  mapTypeControl:true,
+   sensor:true,
+    mapTypeControlOptions: {
+      style:google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    },
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+  map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  google.maps.event.addListener(map, 'click', function(event) {
+    placeMarker(event.latLng);
+    document.getElementById("lat").value = event.latLng.lat();
+     document.getElementById("long").value = event.latLng.lng();
+  });
+}
+function placeMarker(location) {
+if(clickFlag == 0) {
+  marker = new google.maps.Marker({
+    position: location,
+	animation:google.maps.Animation.BOUNCE,
+    map: map,
+  });
+	clickFlag = 1;
+}
+else {
+	marker.setPosition( location);
+	map.panTo(location);
+}
+//this ID of the hidden field should be common.
+
+//document.getElementById("input_"+geolocationID).value = location;
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+-->
+<script src="http://cdn.jotfor.ms/static/jotform.js?3.2.1145" type="text/javascript"></script>
+
+<link href="http://cdn.jotfor.ms/static/formCss.css?3.2.1145" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="http://cdn.jotfor.ms/css/styles/nova.css?3.2.1145" />
+<link type="text/css" media="print" rel="stylesheet" href="http://cdn.jotfor.ms/css/printForm.css?3.2.1145" />
+<style type="text/css">
+    .form-label{
+        width:150px !important;
+    }
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:690px;
+        color:Black !important;
+        font-family:'Lucida Grande',' Lucida Sans Unicode',' Lucida Sans',' Verdana',' Tahoma',' sans-serif';
+        font-size:14px;
+    }
+    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+        color:Black;
+    }
+
+</style>
+
+<link type="text/css" rel="stylesheet" href="http://jotformeu.com/css/styles/buttons/form-submit-button-steel.css?3.2.1145"/>
+
+  
+
 </head>
 <body>
 
@@ -38,10 +167,34 @@
             
                     
                       
-                        <input id="login_email" class="form-control" type="text" placeholder="email(type ERROR for error effect)" required>
+                        <input id="login_email" class="form-control" type="text" placeholder="email" required>
                         <input id="username" class="form-control" type="text" placeholder="Username" required>
+            <!--          <div>
+                            <label for="image_uploads">Choose Profile image to upload (PNG, JPG)</label>
+                            <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" >
+                          </div>
+                          <div class="preview">
+                            <p>No files currently selected for upload</p>
+                          </div> -->  
                         <input id="login_password" class="form-control" type="password" placeholder="Password" required>
                         <input id="avgminute" class="form-control" type="text" placeholder="avgminute" required>
+
+                   <!--     <div class="form-all">
+                            <div >Mark location on this Map
+                              <div id="googleMap" style="width: 100%; height: 527px; background: #5A8E4A;">Map</div>
+                              </div>
+                              
+                          </div>
+                          
+                          <input type="hidden" id="lat"  placeholder="latitude"/>
+                          <input type="hidden" id="long"  placeholder="longitude"/>
+-->
+                        <textarea id="location" class="form-control" type="text" placeholder="address" required></textarea>
+                        <input id="phone_no" class="form-control" type="text" placeholder="Phone no" required>
+                        <input id="specialization" class="form-control" type="text" placeholder="specialization" required>
+                        
+                        
+
                         
 <!--                                <div class="checkbox">
                             <label>
@@ -53,4 +206,9 @@
                         <div>
                             <input onCLick="login()" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
                         </div>
+                      
+                        
                         <script type="text/javascript" src="js/doccreate.js"></script>
+                       <!-- <script type="text/javascript" src="js/doccreatefile.js"></script> -->
+</body>
+</html>

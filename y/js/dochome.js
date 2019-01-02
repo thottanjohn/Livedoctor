@@ -1,6 +1,8 @@
 var a=document.getElementById("name");  
     var x=document.getElementById("Token");
     var y=document.getElementById("AvgTime");
+    var ph=document.getElementById("phone");
+    var spec=document.getElementById("specialization");
    
       
     firebase.auth().onAuthStateChanged(function(user) {
@@ -19,9 +21,13 @@ var a=document.getElementById("name");
         var Hospital=snapshot.val().Hospital;
         var Name=snapshot.val().Name;
         var AvgTime=snapshot.val().Average_Time;
+        var Specialization=snapshot.val().Specialization;
+        var Phone=snapshot.val().Phone_no
         a.innerHTML=Name;
         x.innerHTML=Token;
         y.innerHTML=AvgTime;
+        ph.innerHTML=Phone;
+        spec.innerHTML=Specialization;
         if(status==="Unavailable"){
 
         

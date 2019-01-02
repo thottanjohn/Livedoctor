@@ -4,21 +4,36 @@ var mauth2=firebase.auth();
 
 var secondaryApp = firebase.initializeApp(config, "Secondary");
 
-function login(){
-   var email=$('#login_email').val();
-   var password=$('#login_password').val();
-   var username=$('#username').val();
-   var avgtime=$('#avgminute').val();
-   var token="0";
-   var status="Unavailable";
-firebase.auth().onAuthStateChanged(function(user) {
 
+function login(){
+  //alert($('#login_email'));
+  
+  var email=document.getElementById('login_email').value;
+  var password=document.getElementById('login_password').value;
+  var username=document.getElementById('username').value;
+  var avgtime=document.getElementById('avgminute').value;
+  var address=document.getElementById('location').value;
+  //var latitude=$('#lat').val();
+  //var longitude=$('#long').val();
+  var specialization=document.getElementById('specialization').value;
+  var phoneno=document.getElementById('phone_no').value;
+  var token="0";
+  var status="Unavailable";
+  //var imagefile = document.getElementById("image_uploads").files;
+  //var imagename = imagefile[0].name;
+   // use the Blob or File API
+firebase.auth().onAuthStateChanged(function(user) {
+ 
 
 
 if (user) {
 // User is signed in.(
+//var storageService = firebase.storage();
+//var storageRef = storageService.ref();
 var databasesRef = firebase.database().ref().child("hospitals");
-if(! isNaN(avgtime)){
+if(! isNaN(avgtime)  &&  ! isNaN(phoneno) ){
+
+    
     databasesRef.once('value', function(snapshot) {
         if (snapshot.hasChild(user.uid)) {
         firebase.auth().createUserWithEmailAndPassword(email,password)
@@ -45,11 +60,14 @@ if(! isNaN(avgtime)){
         
         }
         else{
-        
+         
         var parameters = location.search.substring(1).split("&");
         var temp = parameters[0].split("=");
         l = unescape(temp[1]);
-        
+        //var file = imagefile[0];
+        //storageRef.child("images/"+imagename).put(file).then(function(snapshot) {
+          //alert(snapshot);
+        //});
         var secRef = firebase.database().ref().child("hospitals").child(l);
         secRef.once('value', function(snapshot) {
         
@@ -63,7 +81,10 @@ if(! isNaN(avgtime)){
         Token: token,
         Average_Time:avgtime, 
         status:status,
-        Hospital:hospital
+        Hospital:hospital,
+        Phone_no:phoneno,
+        Location:address,
+        Specialization:specialization,
         });
       firebase.auth().signInWithEmailAndPassword(email,password)
         .then(function(firebaseUser) {
@@ -84,7 +105,10 @@ if(! isNaN(avgtime)){
 
 
         
-        });  
+        });
+      
+    
+          
            
         
         }
@@ -112,7 +136,11 @@ window.location="index.html";
 
 }
 
+
+
+
  $(document).ready(function() {
+
  var parameters = location.search.substring(1).split("&");
  var temp = parameters[0].split("=");
  l = unescape(temp[1]);
