@@ -1,12 +1,27 @@
+$('#outer').hide();
 firebase.auth().onAuthStateChanged(function(user) {
     var x=document.getElementById("hospitalname");
     var y=document.getElementById("hrname");
     var ul = document.getElementById("dynamic-list");
-    
+ 
     
      
     if (user) {
       // User is signed in.(
+     
+      var elem = document.getElementById("myBar");   
+      var width = 1;
+      var id = setInterval(frame, 10);
+      function frame() {
+          if (width >= 100) {
+            clearInterval(id);
+      
+      
+          } else {
+            width++; 
+            elem.style.width = width + '%'; 
+          }
+      }
       var databasesRef = firebase.database().ref().child("hospitals");
       databasesRef.once('value', function(snapshot) {
       if (snapshot.hasChild(user.uid)) {
@@ -55,12 +70,16 @@ firebase.auth().onAuthStateChanged(function(user) {
   
 
    });
+   $('#outer').show();
+
+   $('#myProgress').hide();
   });
     
  });
+
   
-});  // ...
-    } else {
+});  // ... 
+} else {
       // User is signed out.
   
       window.location="index.html";
@@ -84,16 +103,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   
  
  // var mRef = firebase.database().ref().child("hospitals/aswini");
- 
-  window.logout=function(){
-
-
-    firebase.auth().signOut().then(function() {
-console.log('Signed Out');
-}, function(error) {
-console.error('Sign Out Error', error);
-});
-  }
 
   
   

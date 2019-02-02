@@ -16,13 +16,14 @@ firebase.auth().onAuthStateChanged(function(user) {
 window.login=function(){
     
     var lg_username=$('#login_username').val();
-                var lg_password=$('#login_password').val()
+    var lg_password=$('#login_password').val()
     if(lg_username.length!= 0 &&  lg_password!=0){  
        
    
       
             firebase.auth().signInWithEmailAndPassword(lg_username,lg_password)
    .then(function(firebaseUser) {
+ 
 
        // Success 
    })
@@ -37,6 +38,7 @@ window.login=function(){
       console.log(error);
        // Error Handling
   });
+
 }
  
   else{

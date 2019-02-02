@@ -1,5 +1,19 @@
+$('#outer').hide();
 function processForm()
         {
+          var elem = document.getElementById("myBar");   
+            var width = 1;
+            var id = setInterval(frame, 10);
+            function frame() {
+              if (width >= 100) {
+                clearInterval(id);
+           
+          
+              } else {
+                width++; 
+                elem.style.width = width + '%'; 
+              }
+            }
           var parameters = location.search.substring(1).split("&");
           var temp = parameters[0].split("=");
           l = unescape(temp[1]);
@@ -21,7 +35,11 @@ function processForm()
                 $("#token").hide();
                 
               }
+              $('#outer').show();
+
+              $('#myProgress').hide();
          });
+   
   
       
   /*
@@ -44,6 +62,7 @@ function processForm()
         var x=document.getElementById("token");
         $(document).ready(function() {
             processForm();
+            
 
         })
     

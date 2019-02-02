@@ -15,7 +15,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/progress.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
@@ -32,8 +32,35 @@
     </script>
 </head>
 <body>
-
-<button onclick="logout()">LOgout</button>
+    <div id="myProgress">
+        <div id="myBar"></div>
+        </div>
+        <div id="outer"> 
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span> 
+            </button>
+            <a class="navbar-brand" href="index.html">Livedoctor</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li ><a href="index.html">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li> 
+              <li id="profile"><a id="profilelink" href="#">Profile</a></li> 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+        <!--      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+        <li id="login"><a href="#"  role="button" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li id="logout"><a onclick="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
 <div id="name"></div>
 <div id="AvgTime">
@@ -51,5 +78,7 @@
 <div id="dt"><button id="sub" onclick="sub()">-1</button><div id="Token"></div><button id="add" onclick="add()">+1</button></div>
 
 
-
+</div>
 <script type="text/javascript" src="js/dochome.js"></script>
+
+<script type="text/javascript" src="js/user.js"></script>

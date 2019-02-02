@@ -1,10 +1,384 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Firebase Hosting</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/progress.css">
+<style>
+body, select {
+    font-family: Roboto,sans-serif;
+}
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Roboto,sans-serif;
+    color: #2b2b2b;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+/* Create two equal columns that floats next to each other */
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
 
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+p {
+    color: #2b2b2b;
+    line-height: 1.6;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+select:not(:-internal-list-box) {
+    background-color:#f5f5f5;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+
+select {
+    border-radius: 0px;
+    border-color: rgb(169, 169, 169);
+}
+
+select {
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    color: black;
+    background-color: white;
+    cursor: default;
+    border-width: 1px;
+    border-style: solid;
+    border-color: initial;
+    border-image: initial;
+
+  }
+  input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb !important;
+}
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+}
+
+select {
+    border-radius: 5px;
+}
+
+
+
+
+input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
+    padding: 1px 0px;
+}
+
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.router-view {
+    padding-top: 0;
+}
+.router-view {
+    padding-top: 40px;
+    min-height: calc(100vh - 300px);
+}
+.row {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.c {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  background-color:#aaa;
+}
+:-webkit-scrollbar {
+    width: 6px;
+    background-color: #c1c1c1;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #c1c1c1;
+}
+::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+::selection {
+    color: #e43935;
+    background-color: #f5f5f5;
+}
+
+.sub-heading[data-v-21572df0] {
+    font-size: 1.4rem;
+}
+.sub-heading[data-v-21572df0] {
+    font-size: 1.4rem;
+}
+.table {
+    display: table;
+}
+.mt0 {
+    margin-top: 0;
+}
+.center {
+    text-align: center;
+}
+.line-height-3 {
+    line-height: 1.3;
+}
+.txlight {
+    font-weight: 300;
+}
+.txwhite {
+    color: #fff;
+}
+.suggested-searches[data-v-21572df0]:nth-child(n) {
+    float: none;
+}
+.suggested-searches[data-v-21572df0]:hover {
+    background: rgba(0,0,0,.5);
+}
+.suggested-searches[data-v-21572df0] {
+    padding: .5rem 1rem .3rem;
+    margin: .5rem;
+    width: 150px;
+    font-size: .8rem;
+}
+.suggested-searches[data-v-21572df0] {
+    width: 122px;
+    background: rgba(0,0,0,.3);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: .5rem .25rem;
+    margin: .25rem;
+}
+.rounded {
+    border-radius: 3px;
+}
+.inline-block {
+    display: inline-block;
+}
+.txlight {
+    font-weight: 300;
+}
+.tx7 {
+    font-size: .7rem;
+}
+.rounded {
+    border-radius: 4px!important;
+}
+
+
+.list-reset {
+    list-style: none;
+    padding-left: 0;
+}
+.center {
+    text-align: center;
+}
+.caps {
+    text-transform: uppercase;
+    letter-spacing: .2em;
+}
+.caps {
+    letter-spacing: 0!important;
+}
+
+.city-select-container[data-v-2513be10], .search-bar-component[data-v-2513be10] {
+    position: relative;
+}
+.tx9 {
+    font-size: .9rem;
+}
+.txwhite {
+    color: #fff;
+}
+
+.table-cell[data-v-21572df0] {
+    vertical-align: middle;
+}
+
+
+.pt2 {
+    padding-top: 1rem;
+}
+.p1 {
+    padding: .5rem;
+}
+.table-cell {
+    display: table-cell;
+}
+.search-container[data-v-2513be10] {
+    max-width: 73rem;
+}
+
+
+.heading[data-v-21572df0] {
+    font-size: 1.6rem;
+    margin: 0;
+    padding-top: 0;
+}
+.mb0 {
+    margin-bottom: 0;
+}
+
+.txshadow {
+    text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+}
+.txwhite {
+    color: #000;
+}
+
+
+.page-home-component[data-v-21572df0] {
+    background-color: #f4f5fc;
+}
+.container-for-search[data-v-21572df0] {
+    max-width: 800px;
+    margin: auto;
+    float: none;
+}
+
+
+.city-select-container[data-v-2513be10], .search-bar-component[data-v-2513be10] {
+    position: relative;
+}
+.my1 {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.large-12 {
+    width: 100%;
+}
+
+.medium-12 {
+    width: 100%;
+}
+.small-centered {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+.small-12 {
+    width: 100%;
+}
+
+
+
+
+.city-select[data-v-2513be10], .search-button[data-v-2513be10], .search-input[data-v-2513be10] {
+    border-radius: 4px;
+}
+.city-select[data-v-2513be10] {
+    background-image: url(/static/images/fa-chevron-down-svg.svg),url(https://d2qcrakyw3ni6h.cloudfront.net/fa-location-arrow-svg.svg.gz);
+    background-repeat: no-repeat,no-repeat;
+    background-position: 94% 50%,6% 50%;
+    background-size: 12px,15px;
+}
+.city-select[data-v-2513be10], .search-input[data-v-2513be10] {
+    padding-left: 15%;
+    font-size: .9rem;
+    font-weight: 300;
+    color: #777!important;
+}
+.city-select[data-v-2513be10] {
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #b7b7b7;
+    border-right : none;
+}
+.mb1 {
+    margin-bottom: .5rem;
+}
+.right {
+    float: right;
+}
+.primary-select {
+    background: #fff;
+    border: none;
+    height: 40px;
+    width: 100%;
+    padding: 0 1rem;
+    -webkit-appearance: none;
+}
+.search-input[data-v-2513be10] {
+    border-radius: 0;
+    border: 1px solid #b7b7b7;
+    border-right: none;
+    padding-left: 8%;
+    background-position: 3% 50%;
+}
+.search-input[data-v-2513be10] {
+    background-image: url(https://d2qcrakyw3ni6h.cloudfront.net/fa-search-svg.svg.gz);
+    background-repeat: no-repeat;
+    background-position: 6% 50%;
+    background-size: 15px;
+    padding-right: 40px;
+}
+
+.primary-input {
+    box-sizing: border-box;
+    background: #fff;
+    border: none;
+    height: 40px;
+    width: 100%;
+    padding: 0 1rem;
+}
+.medium-uncentered {
+    position: static;
+    margin-left: 0;
+    margin-right: 0;
+    float: left;
+}
+.blue{
+}
+/* Clear floats after the columns */
+
+</style>
     <!-- update the version number as needed -->
     <script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
     <script defer src="/__/firebase/5.5.0/firebase-app.js"></script>
@@ -28,14 +402,116 @@
         };
         firebase.initializeApp(config);
       </script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+ 
   </head>
+
   <body>
-      <form  name="search-theme-form" id="search-theme-form">
+        <div id="myProgress">
+        <div id="myBar"></div>
+        </div>
+        <div id="outer">
+      <div data-include="loader"></div>
+      <nav class="navbar navbar-inverse blue">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="index.html">Livedoctor</a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li ><a href="index.html">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Contact Us</a></li> 
+                  <li id="profile"><a id="profilelink" href="#">Profile</a></li> 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+            <!--      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+            
+                  <li id="login"><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                  <li id="logout"><a onclick="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      <!-- 
+      <div class="router-view"><div data-v-21572df0="" class="page-home-component"><div data-v-21572df0="" class="column small-12 container-one table"><div data-v-21572df0="" class="table-cell p1 pt2"><p data-v-21572df0="" class="txwhite txshadow heading center mb0">Never Wait In A Queue!
+        </p> <p data-v-21572df0="" class="txwhite txlight txshadow sub-heading center mb3 line-height-3 mt0">Last minute bookings at the most popular doctors without the wait.</p> <div data-v-21572df0="" class="container-for-search">
+          <div data-v-2513be10="" data-v-21572df0="" class="search-bar-component">
+            <div data-v-2513be10="" class="row small-12 medium-12 large-12 small-centered search-container collapse my1">
+              <div data-v-2513be10="" class="column small-12 medium-3 large-3 small-centered medium-uncentered large-uncentered city-select-container">
+          <select data-v-2513be10="" id="city-drop-down" class="right primary-select mb1 city-select">
+            <option data-v-2513be10="" value="detect-location">
+            Detect 
+            <img data-v-2513be10="" src="/static/images/ic_my_location_black_36px.svg" alt="" class="ifxw">
+            Location
+          </option> <option data-v-2513be10="" value="[object Object]">Pune</option>
+          <option data-v-2513be10="" value="[object Object]">Thane</option>
+          <option data-v-2513be10="" value="[object Object]">Navi Mumbai</option>
+          <option data-v-2513be10="" value="[object Object]">Nashik</option>
+          <option data-v-2513be10="" value="[object Object]">Mumbai</option>
+          <option data-v-2513be10="" value="[object Object]">Hyderabad</option>
+        </select> <div data-v-2513be10="" class="column small-12 location-switch-container card" style="display: none;">
+          <div data-v-2513be10="" class="row  inner-row-one">
+            <p data-v-2513be10="" class="txlight location-prompt tx8 px2 line-height-3">We've detected your location as 
+              <span data-v-2513be10="" class="txbold">''</span>. Do you want to switch?</p></div> 
+              <div data-v-2513be10="" class="row inner-row-two"><div data-v-2513be10="" class="column small-6 px0">
+                <button data-v-2513be10="" class="rounded-left-bottom full-width full-height txbold cancel-button">No Thanks
+
+                </button></div>
+                 <div data-v-2513be10="" class="column small-6 px0">
+                   <button data-v-2513be10="" class="rounded-right-bottom full-width full-height txred txbold">Switch Location
+
+                   </button></div></div></div></div> 
+                   <div data-v-2513be10="" class="column small-12 mb1 small-centered medium-uncentered large-uncentered medium-6">
+                     <div data-v-2513be10="" class="row column input-txt-field">
+                       <input data-v-2513be10="" id="search-input" placeholder="Enter a Doctor, Clinic or Specialisation" class="primary-input search-input"> </div> 
+                       <ul data-v-2513be10="" class="options-list homepage" style="display: none;"></ul> 
+                       <ul data-v-2513be10="" class="options-list homepage" style="display: none;"><li data-v-2513be10="">Loading...</li>
+                      </ul> <ul data-v-2513be10="" class="options-list homepage" style="display: none;">
+                          <li data-v-2513be10="" class="txdark-grey tx8"><span data-v-2513be10="" class="txdark-grey tx8">Suggested Search</span></li>
+                         <li data-v-2513be10="" class="">
+            Child Specialist<br data-v-2513be10=""></li><li data-v-2513be10="" class="">
+            Eye Specialist<br data-v-2513be10=""></li></ul> <ul data-v-2513be10="" class="options-list homepage" style="display: none;"><li data-v-2513be10="">No results found</li></ul></div> <div data-v-2513be10="" class="column small-12 small-centered medium-uncentered large-uncentered search-button-container medium-3"><button data-v-2513be10="" class="primary-button rounded-right full-width search-button">Search </button></div></div></div></div> <br data-v-21572df0=""> 
+       
+          <div data-v-2513be10="" class="column small-12 small-centered medium-uncentered large-uncentered search-button-container medium-3"><button data-v-2513be10="" class="primary-button rounded-right full-width search-button">Search </button></div>
+    <ul data-v-21572df0="" class="list-reset txwhite tx9 caps center mb1">
+      <li data-v-21572df0="" class="inline-block suggested-searches rounded tx7 txlight">
+       Pediatrician
+        </li> 
+        <li data-v-21572df0="" class="inline-block suggested-searches rounded tx7 txlight">
+        Gynecologist
+        </li>
+         <li data-v-21572df0="" class="inline-block suggested-searches rounded tx7 txlight">
+          General Practice
+        </li> 
+        <li data-v-21572df0="" class="inline-block suggested-searches rounded tx7 txlight">
+    Homeopath
+        </li>
+      </ul>
+      </div></div></div></div>  -->
+         
+    <div class="container" id="main">
+            <div class="router-view">
+                            <p data-v-21572df0="" class="txwhite txshadow heading center mb0">Never Wait In A Queue!</p> 
+                            <p class="txwhite txlight txshadow sub-heading center mb3 line-height-3 mt0">Last minute bookings at the most popular doctors without the wait.</p>
+    <p class="text-center"><a href="#" class="btn btn-danger btn-lg" role="button" data-toggle="modal" data-target="#searchdoc">Search For Doctors</a></p>
+    <div id ="doclistdisplay">
+
+        </div>           
+    </div>
+    
+    <div class="modal fade" id="searchdoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header" >
+         <form  name="search-theme-form" id="search-theme-form">
 
           <section id="hospsection">
       <div class="input-group mb-3">
@@ -53,7 +529,7 @@
          
         </div>
           </section>
-          <span id="or">OR</span>
+          <span id="or" class="text-center">OR</span>
           
         <section id="deptselectsection">
         <div class="input-group mb-3">
@@ -63,22 +539,13 @@
             </select>
           </div>
           
-          <div class="input-group mb-3">
-            Choose Doctor:
-            <select id ="depdocSelect"  class="custom-select" id="inputGroupSelect02">
-              
-            </select>
-           
-          </div>
         </section>
-        <span id="ors">OR</span>
+        <span id="ors" class="text-center">OR</span>
         <section id="docselectsection">
-        <div class="input-group mb-3">
-<br>
-            I know a doctor: 
-            <select  id="docsSelect" class="custom-select" id="inputGroupSelect01">
-              <option selected>None</option>
-            </select>
+        <div class="input-group mb-3">  
+       <br>
+            Doctor search: 
+            <input  id="docsSelect" type ="text" placeholder=" I know a doctor: ">
           </div>
         </section>
         <div class="input-group mb-3">
@@ -86,17 +553,76 @@
             
             <input type ="hidden" name ="doctor" id ="doctor">
            
-            <input onCLick="testJS()" id ="submit" type="submit" value="Send data">
+            <input onCLick="testJS()" id ="submits" type="button" value="Send data">
           </div>
          
         </div>
         
       </form>
-
-      <a href="login.html">Login</a>
-   
-   <!-- <script src ="jss/index.js"></script>  -->
+      <button id="rev">revert</button>  
+      </div>
+      </div>
+    </div></div>
     
+        </div>
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" >
+                            <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- Begin # DIV Form -->
+                        <div id="div-forms">
+                        
+                            <!-- Begin # Login Form -->
+                            <div  id="login-form">
+                                <div class="modal-body">
+                                    <div id="div-login-msg">
+                                        <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                        <span id="text-login-msg">Type your username and password.</span>
+                                    </div>
+                                    <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+                                    <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+<!--                                <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> Remember me
+                                        </label>
+                                    </div> -->
+                                </div>
+                                <div class="modal-footer">
+                                    <div>
+                                        <input onCLick="login()" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <!-- End # Login Form -->
+                            
+                     
+                           
+                            
+                        </div>
+
+
+     
+
+     
+
+    </div>
+    </div>
+    </div>
+
+
+   <!-- <script src ="jss/index.js"></script>  -->
+</div>
+ 
    <script type="text/javascript" src="js/index.js"></script>
+
+   <script type="text/javascript" src="js/user.js"></script>
+
   </body>
 </html>

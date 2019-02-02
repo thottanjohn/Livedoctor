@@ -3,9 +3,10 @@ var mauth1=firebase.auth();
 var mauth2=firebase.auth();
 
 var secondaryApp = firebase.initializeApp(config, "Secondary");
-
-
-function login(){
+var px=document.getElementById('outer');
+var progress=document.getElementById('myProgress');
+px.style.display="None";
+function logins(){
   //alert($('#login_email'));
   
   var email=document.getElementById('login_email').value;
@@ -22,11 +23,14 @@ function login(){
   //var imagefile = document.getElementById("image_uploads").files;
   //var imagename = imagefile[0].name;
    // use the Blob or File API
+
 firebase.auth().onAuthStateChanged(function(user) {
  
 
 
 if (user) {
+
+
 // User is signed in.(
 //var storageService = firebase.storage();
 //var storageRef = storageService.ref();
@@ -140,7 +144,23 @@ window.location="index.html";
 
 
  $(document).ready(function() {
+  
 
+  var elem = document.getElementById("myBar");   
+  var width = 1;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+      px.style.display="block";
+
+      progress.style.display="None";
+
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
+  }
  var parameters = location.search.substring(1).split("&");
  var temp = parameters[0].split("=");
  l = unescape(temp[1]);
