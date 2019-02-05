@@ -1,0 +1,28 @@
+.details li {
+    list-style: none;
+  }
+  li {
+      margin-bottom:10px;
+      
+  }
+  .black{
+    background-color:black;
+    color: white;
+  }
+  .red{
+    background-color:red;
+    color: white;
+
+  }
+  .bk{
+      background-color:transparent;
+        font-weight: bold;
+  }
+
+  .xy{
+      background-color:wheat; 
+    padding: 10px;
+    border: 1px solid black;
+    margin: 1em
+
+  }

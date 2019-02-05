@@ -1,8 +1,9 @@
 $('#outer').hide();
 var a=document.getElementById("name");  
-var x=document.getElementById("Token");
+var x=document.getElementById("token");
 var y=document.getElementById("AvgTime");
 var ph=document.getElementById("phone");
+var hospital=document.getElementById("hospital");
 var spec=document.getElementById("specialization");
    
       
@@ -39,6 +40,7 @@ var spec=document.getElementById("specialization");
         x.innerHTML=Token;
         y.innerHTML=AvgTime;
         ph.innerHTML=Phone;
+        hospital.innerHTML=Hospital
         spec.innerHTML=Specialization;
         if(status==="Unavailable"){
 
@@ -51,7 +53,7 @@ var spec=document.getElementById("specialization");
         $("#un").prop("checked", true); 
         }else{
         a.style.display = "block"; 
-        x.style.display = "block"; 
+        x.style.display = "inline"; 
         y.style.display = "block"; 
         
         
@@ -94,7 +96,7 @@ if( currentValue === "Unavailable"){
   y.style.display = "none"; 
   $("#un").prop("checked", true); 
 }else{
-  x.style.display = "block"; 
+  x.style.display = "inline"; 
   y.style.display = "block"; 
 $("#avail").prop("checked", true); 
 

@@ -21,12 +21,21 @@ function processForm()
          
          var secRef= databasesRef.child("Doctors").child(l);
          secRef.on('value', function(snapshot) {
-               $("#name").html("Doctor Name:"+snapshot.val().Name);
+              var status=snapshot.val().status;
+              var Token=snapshot.val().Token;
+              var Hospital=snapshot.val().Hospital;
+              var Name=snapshot.val().Name;
+              var AvgTime=snapshot.val().Average_Time;
+              var Specialization=snapshot.val().Specialization;
+              var Phone=snapshot.val().Phone_no
+               $("#name").html(Name);
               
-               $("#status").html("Status:"+snapshot.val().status);
-        
-               $("#AvgTime").html("Average Time:"+snapshot.val().Average_Time);
-               $("#token").html("Token:"+snapshot.val().Token);
+               $("#status").html(" "+status);
+               $("#phone").html(Phone);
+               $("#specialization").html(Specialization);
+               $("#hospital").html(Hospital);
+               $("#token").html(" "+Token);
+               $("#AvgTime").html(" "+AvgTime+"minutes");
                if(snapshot.val().status ==="Available"){
                 $("#AvgTime").show();
                 $("#token").show();

@@ -18,6 +18,8 @@
 
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/progress.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -65,10 +67,29 @@
             </div>
           </div>
         </nav>
-      <div id="name"></div>
-      <div id="AvgTime"></div>
-      <div id="status"></div>
-      <div id="token"></div>
+
+        <div class="container">    
+            <div class="jumbotron">
+              <div class="row">
+                  <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                      <div class="container" style="border-bottom:1px solid black">
+                        <h2><span class="fa fa-user-md" id="name"></span></h2>
+                      </div>
+                        <hr>
+                      <ul class="container details">
+                        <li><p ><span id="hospital" class="fa fa-h-square" style="width:50px;"></span></p></li>
+                        <li><p ><span id="specialization" class="fa fas fa-heartbeat" ></span></p></li>
+                        <li><p ><span id="phone" class="glyphicon glyphicon-earphone one" style="width:50px;"></span></p></li>
+                      
+                        <li><p ><button class="btn black" >Status </button><span id="status"></span></p></li>
+                        <li><p ><span id="AvgTime" class="fa fas fa-hourglass-start" ></span></p></li>
+
+                        <li><p ><button class="btn btn-lg btn-danger" >TOKEN</button><span class="btn bk btn-lg" id="token" ></span></p></li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+
 
 
       <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

@@ -15,7 +15,9 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/progress.css">
+    <link rel="stylesheet" href="css/page.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -62,16 +64,31 @@
                   </div>
                 </div>
               </nav>
-<div id="hospitalname"></div>
-<div id="hrname"></div>
-<form  name="search-theme-form" id="search-theme-form">
-<input type ="hidden" name ="doctor" id ="doctor">
-<input onCLick="adddoctor()" id ="submit" type="submit" value="Add Doctor">
-</form>
-<ul id="dynamic-list"></ul>
+              <div class="container">    
+                  <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                            <div class="container" style="border-bottom:1px solid black">
+                              <h2><span class="	glyphicon glyphicon-user" id="hrname"></span></h2>
+                            </div>
+                              <hr>
+                            <ul class="container details">
+                              <li><p ><span id="hospitalname" class="fa fa-h-square" ></span></p></li>
+                              <form  name="search-theme-form" id="search-theme-form">
+                                  <input type ="hidden" name ="doctor" id ="doctor">
+                                  <input onCLick="adddoctor()" class="btn btn-success" id ="submit" type="submit" value="Add Doctor">
+                                  </form>
+                                  <h2><b><u>Doctors List</u></b></h2>
+                                  <div  id ="dynamic-list"  class="row">
+
+                                    </div>
+                            </ul>
+                        </div>
+                    </div>
+                  </div>
+
 
 </div>
-
 
 
 <script type="text/javascript" src="js/hrhome.js"></script>

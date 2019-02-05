@@ -35,8 +35,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   mRef.once('value', function(snapshot) {
   
 
-  x.innerHTML="Hosptial Name:"+snapshot.val().hospitalname;
-  y.innerHTML="HR Name:"+snapshot.val().hrname;
+  x.innerHTML=" "+snapshot.val().hospitalname;
+  y.innerHTML=" "+snapshot.val().hrname;
   var ref = firebase.database().ref().child("Doctors");
   var secRef = firebase.database().ref().child("Doctors").orderByChild('Hospital').equalTo(snapshot.val().hospitalname);
   secRef.once('value', function(snapshot) {
@@ -44,19 +44,31 @@ firebase.auth().onAuthStateChanged(function(user) {
   snapshot.forEach(function(childSnapshot) {
 
   var childKey = childSnapshot.val().Name;
+  var specialization = childSnapshot.val().Specialization;
   var key =childSnapshot.key;
-  var div=document.createElement("div");
-  var li = document.createElement("div");
   var bt = document.createElement("BUTTON");
-  li.setAttribute('id',childKey);
+  var name =document.createElement("h3");
+  var spec =document.createElement("p");
+  name.setAttribute('class',"card-title");
+  spec.setAttribute('class',"card-body");
+  name.setAttribute('id',childKey);
   bt.setAttribute('id',key);
+  var option2 = document.createElement("div");
+  var option3 = document.createElement("div");
+
+  option2.setAttribute('class','card w75 xy');
+  option3.setAttribute('class','cardbody');
+  bt.setAttribute('class','btn btn-danger');
   var t = document.createTextNode("Remove Doctor");
   bt.appendChild(t);
-  li.appendChild(document.createTextNode(childKey));
-  div.appendChild(li);
-  div.appendChild(bt);
+  name.appendChild(document.createTextNode(childKey));
+  spec.appendChild(document.createTextNode(specialization));
+  option3.appendChild(name);
+  option3.appendChild(spec);
+  option3.appendChild(bt);
+  option2.appendChild(option3)
   bt.onclick = function() {
-    ul.removeChild(div);
+    ul.removeChild(option2);
 
     ref.child(this.id).remove();
 
@@ -65,7 +77,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 
 
-  ul.appendChild(div);
+  ul.appendChild(option2);
 
   
 

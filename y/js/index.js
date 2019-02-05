@@ -15,6 +15,54 @@ var depst = document.getElementById("deptselectsection");
 var hosp = document.getElementById("hospsection");
 var docsec = document.getElementById("docselectsection");
 
+    doclistdisplay.innerHTML=""
+    counter=0;
+    var secRef = firebase.database().ref().child("Doctors").limitToFirst(5);
+ 
+    secRef.once('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+
+    var childKey = childSnapshot.val().Name;
+    var phno = childSnapshot.val().Phone_no;
+    var Specialization = childSnapshot.val().Specialization;
+    var chkey =childSnapshot.key; 
+    var option1 = document.createElement("div");
+    var option2 = document.createElement("div");
+    var option3 = document.createElement("div");
+    option1.setAttribute('class',"col-sm-6");
+    option2.setAttribute('class','card');
+    option3.setAttribute('class','cardbody  xyb');
+        
+    var name =document.createElement("h3");
+    name.setAttribute('class',"card-title");
+    var link =document.createElement("a");
+    link.setAttribute('class','alink');
+    link.setAttribute('href',"page.html?doctor=" +  chkey);
+    link.innerHTML= childKey;
+    name.prepend(link);
+    var p1 =document.createElement("p");
+    var p2 =document.createElement("p");
+    p1.setAttribute('class',"card-text");
+    p2.setAttribute('class',"card-text");
+    p1.innerHTML=  Specialization;
+    p2.innerHTML=  phno;
+    option3.prepend( p2);
+    option3.prepend( p1);
+    option3.prepend(name);
+    option2.append(option3);
+    option1.append(option2);
+    
+
+
+    doclistdisplay.append(option1);
+   
+     });
+     
+   
+
+    });
+    
+
 var or = document.getElementById("or");
 var ors = document.getElementById("ors");
 $('#outer').hide();
@@ -259,22 +307,35 @@ function testJS(){
       var phno = childSnapshot.val().Phone_no;
       var Specialization = childSnapshot.val().Specialization;
       var chkey =childSnapshot.key; 
-      var option = document.createElement("div");
-      option.setAttribute('class','c');
-          
-      var name =document.createElement("h3");
-      var link =document.createElement("a");
-      link.setAttribute('href',"page.html?doctor=" +  chkey);
-      link.innerHTML= childKey;
-      name.prepend(link);
-      var p_content =document.createElement("p");
-      p_content.innerHTML= "CAll: " + phno  +"<br>" + "Specialization :" + Specialization;
-      option.prepend( p_content);
-      option.prepend(name);
-      
-  
-  
-      doclistdisplay.append(option);
+      var option1 = document.createElement("div");
+    var option2 = document.createElement("div");
+    var option3 = document.createElement("div");
+    option1.setAttribute('class',"col-sm-6");
+    option2.setAttribute('class','card');
+    option3.setAttribute('class','cardbody  xyb');
+        
+    var name =document.createElement("h3");
+    name.setAttribute('class',"card-title");
+    var link =document.createElement("a");
+    link.setAttribute('class','alink');
+    link.setAttribute('href',"page.html?doctor=" +  chkey);
+    link.innerHTML= childKey;
+    name.prepend(link);
+    var p1 =document.createElement("p");
+    var p2 =document.createElement("p");
+    p1.setAttribute('class',"card-text");
+    p2.setAttribute('class',"card-text");
+    p1.innerHTML=  Specialization;
+    p2.innerHTML=  phno;
+    option3.prepend( p2);
+    option3.prepend( p1);
+    option3.prepend(name);
+    option2.append(option3);
+    option1.append(option2);
+    
+
+
+    doclistdisplay.append(option1);
      });
     });
 
@@ -285,7 +346,7 @@ function testJS(){
   
    else if(doctorlist.value.length !=0){
     doclistdisplay.innerHTML=""
-    var secRef = firebase.database().ref().child("Doctors").orderByChild('Name').startAt(doctorlist.value);
+    var secRef = firebase.database().ref().child("Doctors").orderByChild('Name').startAt(doctorlist.value).limitToFirst(10);
     secRef.once('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
 
@@ -293,22 +354,36 @@ function testJS(){
     var phno = childSnapshot.val().Phone_no;
     var Specialization = childSnapshot.val().Specialization;
     var chkey =childSnapshot.key; 
-    var option = document.createElement("div");
-    option.setAttribute('class','c');
+    var option1 = document.createElement("div");
+    var option2 = document.createElement("div");
+    var option3 = document.createElement("div");
+    option1.setAttribute('class','col-sm-6');
+    option2.setAttribute('class','card');
+    option3.setAttribute('class','cardbody xyb');
+
         
     var name =document.createElement("h3");
+    name.setAttribute('class',"card-title");
     var link =document.createElement("a");
+    link.setAttribute('class','alink');
     link.setAttribute('href',"page.html?doctor=" +  chkey);
     link.innerHTML= childKey;
     name.prepend(link);
-    var p_content =document.createElement("p");
-    p_content.innerHTML= "CAll: " + phno  +"<br>" + "Specialization :" + Specialization;
-    option.prepend( p_content);
-    option.prepend(name);
+    var p1 =document.createElement("p");
+    var p2 =document.createElement("p");
+    p1.setAttribute('class',"card-text");
+    p2.setAttribute('class',"card-text");
+    p1.innerHTML=  Specialization;
+    p2.innerHTML=  phno;
+    option3.prepend( p2);
+    option3.prepend( p1);
+    option3.prepend(name);
+    option2.append(option3);
+    option1.append(option2);
     
 
 
-    doclistdisplay.append(option);
+    doclistdisplay.append(option1);
 
      });
      if (!snapshot.exists()) {
@@ -328,7 +403,7 @@ function testJS(){
   else{
     alert("Please select a valid doctor");
   }
-
+  $('#searchdoc').modal('toggle');
 
 }
 

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="css/progress.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/page.css">
     <script>
       var config = {
           apiKey: "AIzaSyBUKJ3QU6k8XIPtKHTFp_1M6e0GsYv8C4w",
@@ -62,23 +64,31 @@
         </div>
       </nav>
 
-<div id="name"></div>
-<div id="AvgTime">
-</div>
-<div id="phone">
-  </div>
-  <div id="specialization">
+      <div class="container">    
+          <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+                    <div class="container" style="border-bottom:1px solid black">
+                      <h2><span class="fa fa-user-md" id="name"></span></h2>
+                    </div>
+                      <hr>
+                    <ul class="container details">
+                      <li><p ><span id="hospital" class="fa fa-h-square" style="width:50px;"></span></p></li>
+                      <li><p ><span id="specialization" class="fa fas fa-heartbeat" ></span></p></li>
+                      <li><p ><span id="phone" class="glyphicon glyphicon-earphone one" style="width:50px;"></span></p></li>
+                    
+                      <li><p >STATUS: <span id="status" ><label> <input type="radio" name="gender" id="un" onclick="handleClick(this);" value="Unavailable"/>Unavailable</label>
+                        <label><input type="radio" name="gender" id="ava" onclick="handleClick(this);" value="Available"> Available</label></span></p></li>
+                      <li><p ><span id="AvgTime" class="fa fas fa-hourglass-start" ></span></p></li>
 
-  </div>
-<div id="status">
+                      <li><p >  <button class="btn black" id="sub" onclick="sub()"><span class="fa fas fa-minus"   ></span></button><span id="token" class="btn  bk btn-lg "   ></span><button class="btn black" id="add" onclick="add()"><span class="fa fas fa-plus"   ></span></button></p></li>
+                      <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span><a href="#">www.example.com</p></a>
+                    </ul>
+                </div>
+            </div>
+          </div>
 
- <label> <input type="radio" name="gender" id="un" onclick="handleClick(this);" value="Unavailable"/>Unavailable</label>
- <label><input type="radio" name="gender" id="ava" onclick="handleClick(this);" value="Available"> Available</label><br>
-</div>
-<div id="dt"><button id="sub" onclick="sub()">-1</button><div id="Token"></div><button id="add" onclick="add()">+1</button></div>
 
-
-</div>
 <script type="text/javascript" src="js/dochome.js"></script>
 
 <script type="text/javascript" src="js/user.js"></script>
