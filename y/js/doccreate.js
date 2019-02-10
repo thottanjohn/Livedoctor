@@ -5,8 +5,12 @@ var mauth2=firebase.auth();
 var secondaryApp = firebase.initializeApp(config, "Secondary");
 var px=document.getElementById('outer');
 var progress=document.getElementById('myProgress');
+  
+var logins =document.getElementById('login');
+var logouts =document.getElementById('logout');
+var profiles =document.getElementById('profile');
 px.style.display="None";
-function logins(){
+function login_fn(){
   //alert($('#login_email'));
   
   var email=document.getElementById('login_email').value;
@@ -45,7 +49,7 @@ if(! isNaN(avgtime)  &&  ! isNaN(phoneno) ){
         
           
         
-        
+        alert("success");
         
         // Success 
         })
@@ -140,6 +144,92 @@ window.location="index.html";
 
 }
 
+firebase.auth().onAuthStateChanged(function(user) {
+    
+      
+       
+  if (user) {
+    // User is signed in.(
+      logins.style.display="None";
+      logouts.style.display="block";
+      profiles.style.display="block";
+
+      var link =document.getElementById('profilelink');
+
+      var databasesRef = firebase.database().ref().child("hospitals");
+      databasesRef.once('value', function(snapshot) {
+      if (snapshot.hasChild(user.uid)) {
+        link.href="hrhome.html?doctor=" + user.uid;
+    // run some code
+      }
+      else{
+        link.href="dochome.html?doctor=" + user.uid;
+      }
+     
+    });
+
+
+  }
+      else {
+        // User is signed out.
+
+        login.style.display="block";
+        logout.style.display="None";
+        profile.style.display="None";
+        // ...
+      }
+    });
+
+    function logout(){
+      firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+        login.style.display="block";
+        logout.style.display="None";
+        profile.style.display="None";
+
+        //$('#logout').hide();
+        //$('#login').show();
+        //$('#profile').hide();
+      
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
+          }
+
+          window.login=function(){
+      
+            var lg_username=$('#login_username').val();
+                        var lg_password=$('#login_password').val()
+            if(lg_username.length!= 0 &&  lg_password!=0){  
+               
+           
+              
+            firebase.auth().signInWithEmailAndPassword(lg_username,lg_password)
+           .then(function(firebaseUser) {
+            $('#login-modal').modal('toggle');
+               // Success 
+           })
+          .catch(function(error) {
+            var errorCode = error.code;
+              var errorMessage = error.message;
+              if (errorCode === 'auth/wrong-password') {
+                alert('Wrong password.');
+              } else {
+                alert(errorMessage);
+              }
+              console.log(error);
+               // Error Handling
+          });
+        }
+         
+          else{
+        
+                        alert("Please enter a valid username or passwprd");
+                    }
+            
+        
+        
+        }
 
 
 

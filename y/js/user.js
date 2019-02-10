@@ -1,4 +1,7 @@
   
+var logins =document.getElementById('login');
+var logouts =document.getElementById('logout');
+var profiles =document.getElementById('profile');
 firebase.auth().onAuthStateChanged(function(user) {
     
       
@@ -38,9 +41,13 @@ firebase.auth().onAuthStateChanged(function(user) {
       function logout(){
         firebase.auth().signOut().then(function() {
           console.log('Signed Out');
-          $('#logout').hide();
-          $('#login').show();
-          $('#profile').hide();
+          logins.style.display="block";
+          logouts.style.display="None";
+          profiles.style.display="None";
+
+          //$('#logout').hide();
+          //$('#login').show();
+          //$('#profile').hide();
         
         }, function(error) {
           console.error('Sign Out Error', error);

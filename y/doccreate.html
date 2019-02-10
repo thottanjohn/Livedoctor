@@ -193,21 +193,64 @@ google.maps.event.addDomListener(window, 'load', initialize);
             
             <!-- Begin # DIV Form -->
             
-                    
+          
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="login_email">Email</label>
+                  <input id="login_email" type="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="username">Name</label>
+                  <input id="username" type="text" class="form-control"  placeholder="Name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="login_password">Password</label>
+                  <input id="login_password" type="password" class="form-control" placeholder="Password">
+                </div>
+              <div class="form-group col-md-6" >
+                <label for="avgminute">Avg Time</label>
+                <input id="avgminute" type="text" class="form-control" placeholder="Avg Time" required>
+              </div>
+              <div class="form-group col-md-12">
+                <label for="location">Address</label>
+                <input id="location" class="form-control" type="text" placeholder="address" required>
+              </div>
+
+              <div class="form-row">
+                  <div class="form-group col-md-4">
+                      <label for="specialization">Specialization</label>
+                      <input id="specialization" class="form-control" type="text" placeholder="specialization" required>
+                    </div>
+                <div class="form-group col-md-4">
+                  <label for="inputCity">City</label>
+                  <input type="text" class="form-control" id="inputCity">
+                </div>
+                <div class="form-group col-md-4">
+                  <label for="phone_no">Phone No.</label>
+                  <input id="phone_no" class="form-control" type="text" placeholder="Phone no" required>
+                </div>
+              </div>
+              <div class="form-group"></div>
+            
+              <div class="form-group col-md-4">
+                  <input onCLick="login_fn()"  type="submit" id="submit" class="btn btn-primary btn-lg btn-block" >
+                </div>
+                </div>
+       
                       
-                        <input id="login_email" class="form-control" type="text" placeholder="email" required>
+             <!--           <input id="login_email" class="form-control" type="text" placeholder="email" required>
                         <input id="username" class="form-control" type="text" placeholder="Username" required>
-            <!--          <div>
+                      <div>
                             <label for="image_uploads">Choose Profile image to upload (PNG, JPG)</label>
                             <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" >
                           </div>
                           <div class="preview">
                             <p>No files currently selected for upload</p>
-                          </div> -->  
+                          </div>  
                         <input id="login_password" class="form-control" type="password" placeholder="Password" required>
                         <input id="avgminute" class="form-control" type="text" placeholder="avgminute" required>
 
-                   <!--     <div class="form-all">
+                      <div class="form-all">
                             <div >Mark location on this Map
                               <div id="googleMap" style="width: 100%; height: 527px; background: #5A8E4A;">Map</div>
                               </div>
@@ -216,29 +259,79 @@ google.maps.event.addDomListener(window, 'load', initialize);
                           
                           <input type="hidden" id="lat"  placeholder="latitude"/>
                           <input type="hidden" id="long"  placeholder="longitude"/>
--->
+
                         <textarea id="location" class="form-control" type="text" placeholder="address" required></textarea>
                         <input id="phone_no" class="form-control" type="text" placeholder="Phone no" required>
                         <input id="specialization" class="form-control" type="text" placeholder="specialization" required>
                         
                         
 
-                        
+                      --> 
 <!--                                <div class="checkbox">
                             <label>
                                 <input type="checkbox"> Remember me
                             </label>
-                        </div> -->
+                        </div> 
                    
                     
                         <div>
                             <input onCLick="logins()" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
                         </div>
-                      </div>
-                        
-                        <script type="text/javascript" src="js/doccreate.js"></script>
+                      </div>-->
+                      <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header" >
+                                      <img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                      </button>
+                                  </div>
+                                  
+                                  <!-- Begin # DIV Form -->
+                                  <div id="div-forms">
+                                  
+                                      <!-- Begin # Login Form -->
+                                      <div  id="login-form">
+                                          <div class="modal-body">
+                                              <div id="div-login-msg">
+                                                  <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                                  <span id="text-login-msg">Type your username and password.</span>
+                                              </div>
+                                              <input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+                                              <input id="login_password" class="form-control" type="password" placeholder="Password" required>
+          <!--                                <div class="checkbox">
+                                                  <label>
+                                                      <input type="checkbox"> Remember me
+                                                  </label>
+                                              </div> -->
+                                          </div>
+                                          <div class="modal-footer">
+                                              <div>
+                                                  <input onCLick="login()" id="submit" type="submit" class="btn btn-primary btn-lg btn-block" value="Login">
+                                              </div>
+                                            
+                                          </div>
+                                      </div>
+                                      <!-- End # Login Form -->
+                                      
+                               
+                                     
+                                      
+                                  </div>
+          
+          
+               
+          
+               
+          
+              </div>
+              </div>
+              </div>
+              <script type="text/javascript" src="js/doccreate.js"></script>
 
-                <script type="text/javascript" src="js/user.js"></script>
+
+              
                        <!-- <script type="text/javascript" src="js/doccreatefile.js"></script> -->
 </body>
 </html>
